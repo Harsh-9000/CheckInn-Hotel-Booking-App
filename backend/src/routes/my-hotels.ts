@@ -51,7 +51,7 @@ router.post(
 
       res.status(201).send(hotel)
     } catch (error) {
-      console.log('Error creating hotel: ' + error)
+      console.log('Error in create hotel route: ', error)
       res.status(500).json({ message: 'Something went wrong.' })
     }
   }
@@ -62,6 +62,7 @@ router.get('/', verifyToken, async (req: Request, res: Response) => {
     const hotels = await Hotel.find({ userId: req.userId })
     res.json(hotels)
   } catch (error) {
+    console.log('Error in get hotels route: ', error)
     res.status(500).json({ message: 'Error fetching hotels.' })
   }
 })
@@ -77,6 +78,7 @@ router.get('/:hotelId', verifyToken, async (req: Request, res: Response) => {
 
     res.json(hotel)
   } catch (error) {
+    console.log('Error in get hotel by ID route: ', error)
     res.status(500).json({ message: 'Error fetching hotels.' })
   }
 })
@@ -111,6 +113,7 @@ router.put(
       await hotel.save()
       res.status(201).json(hotel)
     } catch (error) {
+      console.log('Error in update hotel route: ', error)
       res.status(500).json({ message: 'Something went wrong.' })
     }
   }

@@ -50,7 +50,7 @@ router.post(
 
       res.status(200).json({ userId: user._id })
     } catch (error) {
-      console.log(error)
+      console.log('Error in login route: ', error)
       res.status(500).json({ message: 'Something went wrong.' })
     }
   }

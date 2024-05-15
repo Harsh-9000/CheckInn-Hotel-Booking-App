@@ -48,7 +48,7 @@ router.post(
 
       return res.status(200).send({ message: 'User Registered OK.' })
     } catch (error) {
-      console.log(error)
+      console.log('Error in register route: ', error)
       res.status(500).send({ message: 'Something went wrong.' })
     }
   }
