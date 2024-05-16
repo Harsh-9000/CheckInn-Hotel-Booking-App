@@ -18,7 +18,7 @@ test.beforeEach(async ({ page }) => {
   await expect(page.getByText('Sign in Successful!')).toBeVisible()
 })
 
-test('Should show hotel search results', async ({ page }) => {
+test('should show hotel search results', async ({ page }) => {
   await page.goto(UI_URL)
 
   await page.getByPlaceholder('Where are you going?').fill('Test Country')
@@ -26,4 +26,15 @@ test('Should show hotel search results', async ({ page }) => {
 
   await expect(page.getByText('Hotels found in Test Country')).toBeVisible()
   await expect(page.getByText('Test Hotel Title').first()).toBeVisible()
+})
+
+test('should show hotel detail', async ({ page }) => {
+  await page.goto(UI_URL)
+
+  await page.getByPlaceholder('Where are you going?').fill('Test Country')
+  await page.getByRole('button', { name: 'Search' }).click()
+
+  await page.getByText('Test Hotel Title').first().click()
+  await expect(page).toHaveURL(/detail/)
+  await expect(page.getByRole('button', { name: 'Book Now' })).toBeVisible()
 })
