@@ -45,7 +45,7 @@ test('should book hotel', async ({ page }) => {
   await page.getByPlaceholder('Where are you going?').fill('Test Country')
 
   const date = new Date()
-  date.setDate(date.getDate() + 3)
+  date.setDate(date.getDate() + 4)
   const formattedDate = date.toISOString().split('T')[0]
   await page.getByPlaceholder('Check-out Date').fill(formattedDate)
 
@@ -66,4 +66,7 @@ test('should book hotel', async ({ page }) => {
 
   await page.getByRole('button', { name: 'Confirm Booking' }).click()
   await expect(page.getByText('Booking Saved!')).toBeVisible({ timeout: 10000 })
+
+  await page.getByRole('link', { name: 'My Bookings' }).click()
+  await expect(page.getByText('Test Hotel Title')).toBeVisible()
 })
