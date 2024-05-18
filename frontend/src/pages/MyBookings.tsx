@@ -23,7 +23,7 @@ const MyBookings = () => {
             <img
               src={hotel.imageUrls[0]}
               className="w-full h-full object-cover object-center"
-              alt="hotel"
+              alt={hotel.name}
             />
           </div>
 
