@@ -12,9 +12,12 @@ const LatestDestinationCard = ({ hotel }: Props) => {
       className="relative cursor-pointer overflow-hidden rounded-md"
     >
       <div className="h-[300px]">
-        <img src={hotel.imageUrls[0]} alt={hotel.name} />
+        <img
+          src={hotel.imageUrls[0]}
+          alt={hotel.name}
+          className="w-full h-full object-cover"
+        />
       </div>
-
       <div className="absolute bottom-0 p-4 bg-black bg-opacity-50 w-full rounded-b-md">
         <span className="text-white font-bold tracking-tight text-3xl">
           {hotel.name}
