@@ -17,6 +17,9 @@ const Layout = ({ children }: Props) => {
     '/sign-in',
     '/my-bookings',
     '/my-hotels',
+    '/booking',
+    '/add-hotel',
+    '/edit-hotel'
   ].includes(pathname)
 
   return (
