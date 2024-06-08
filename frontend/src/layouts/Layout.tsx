@@ -22,10 +22,14 @@ const Layout = ({ children }: Props) => {
     '/edit-hotel',
   ]
 
-  const dynamicPathsRegex = /^\/(hotel\/\d+\/booking|edit-hotel\/\d+)$/
+  const hideSearchBarRegexes = [
+    /^\/hotel\/[^/]+\/booking$/,
+    /^\/edit-hotel\/[^/]+$/,
+  ]
 
   const showSearchBar =
-    !hideSearchBarPaths.includes(pathname) && !dynamicPathsRegex.test(pathname)
+    !hideSearchBarPaths.includes(pathname) &&
+    !hideSearchBarRegexes.some((regex) => regex.test(pathname))
 
   return (
     <div className="flex flex-col min-h-screen">
