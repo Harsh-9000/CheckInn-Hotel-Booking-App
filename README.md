@@ -1,4 +1,24 @@
 # CheckInn Hotel Booking App
+
+## Description
+
+CheckInn is hotel bookings website. Some features:
+1. JWT Authentication
+2. Hotel Booking and Stripe Payment Gateway
+3. Add your own Hotel Property
+4. Filtering Hotels based on stars, price, facilities, etc.
+5. Sort Hotels based on price, stars, etc.
+
+## Live Website
+
+Explore the live version of CheckInn Hotel Booking App [here](https://your-live-website-url.com).
+
+## Screenshots
+
+![Screenshot 1](./images/screenshot1.png)
+![Screenshot 2](./images/screenshot2.png)
+![Screenshot 3](./images/screenshot3.png)
+
 ## Setting Up the CheckInn Hotel Booking App
 
 This guide will walk you through the process of setting up the CheckInn Hotel Booking App on your local machine.
