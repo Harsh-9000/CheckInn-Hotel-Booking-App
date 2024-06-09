@@ -11,11 +11,11 @@ CheckInn is hotel bookings website. Some features:
 
 ## Live Website
 
-Explore the live version of CheckInn Hotel Booking App [here](https://your-live-website-url.com).
+Explore the live version of CheckInn Hotel Booking App [here]([https://your-live-website-url.com](https://booking-app-8zof.onrender.com)).
 
 ## Screenshots
 
-![Screenshot 1](./images/screenshot1.png)
+![Screenshot 1](https://github.com/Harsh-9000/CheckInn-Hotel-Booking-App/assets/113941191/a814b211-d0c8-4af2-8083-54ff59b6eccd)
 ![Screenshot 2](./images/screenshot2.png)
 ![Screenshot 3](./images/screenshot3.png)
 
