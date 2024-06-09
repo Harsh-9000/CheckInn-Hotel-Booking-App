@@ -1,4 +1,5 @@
-# Setting Up the CheckInn Hotel Booking App
+# CheckInn Hotel Booking App
+## Setting Up the CheckInn Hotel Booking App
 
 This guide will walk you through the process of setting up the CheckInn Hotel Booking App on your local machine.
 
