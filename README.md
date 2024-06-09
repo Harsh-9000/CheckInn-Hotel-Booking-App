@@ -16,8 +16,10 @@ Explore the live version of CheckInn Hotel Booking App [here]([https://your-live
 ## Screenshots
 
 ![Screenshot 1](https://github.com/Harsh-9000/CheckInn-Hotel-Booking-App/assets/113941191/a814b211-d0c8-4af2-8083-54ff59b6eccd)
-![Screenshot 2](./images/screenshot2.png)
-![Screenshot 3](./images/screenshot3.png)
+![Screenshot 2](https://github.com/Harsh-9000/CheckInn-Hotel-Booking-App/assets/113941191/ceb46087-8f20-4e8d-a66c-f7fc7e7481f7)
+![Screenshot 3](https://github.com/Harsh-9000/CheckInn-Hotel-Booking-App/assets/113941191/eca2e134-7a55-4753-90dd-52d71b00d6d5)
+![Screenshot 4](https://github.com/Harsh-9000/CheckInn-Hotel-Booking-App/assets/113941191/d8db5596-fa26-4e95-ae2c-9de67465b976)
+![Screenshot 5](https://github.com/Harsh-9000/CheckInn-Hotel-Booking-App/assets/113941191/b7cab8a9-6b6c-41b3-97bd-16c88bb3ef5f)
 
 ## Setting Up the CheckInn Hotel Booking App
 
