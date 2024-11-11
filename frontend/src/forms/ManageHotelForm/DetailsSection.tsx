@@ -22,6 +22,18 @@ const DetailsSection = () => {
         )}
       </label>
 
+      <label className="text-gray-700 text-sm font-bold flex-1">
+        Address
+        <input
+          type="text"
+          className="border rounded w-full py-1 px-2 font-normal"
+          {...register('address', { required: 'This field is required.' })}
+        ></input>
+        {errors.address && (
+          <span className="text-red-500">{errors.address.message}</span>
+        )}
+      </label>
+
       <div className="flex gap-4">
         <label className="text-gray-700 text-sm font-bold flex-1">
           State/City

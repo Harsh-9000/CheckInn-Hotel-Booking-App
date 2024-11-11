@@ -9,6 +9,7 @@ import { HotelType } from '../../../../backend/src/shared/types'
 
 export type HotelFormData = {
   name: string
+  address: string
   city: string
   country: string
   description: string
@@ -43,6 +44,7 @@ const ManageHotelForm = ({ onSave, isLoading, hotel }: Props) => {
     }
     formData.append('name', formDataJson.name)
     formData.append('city', formDataJson.city)
+    formData.append('address', formDataJson.address)
     formData.append('country', formDataJson.country)
     formData.append('description', formDataJson.description)
     formData.append('type', formDataJson.type)

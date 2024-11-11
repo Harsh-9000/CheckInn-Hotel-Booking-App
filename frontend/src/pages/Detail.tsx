@@ -1,8 +1,10 @@
 import { useQuery } from 'react-query'
 import { useParams } from 'react-router-dom'
 import { AiFillStar } from 'react-icons/ai'
+import { FaMapMarkerAlt } from 'react-icons/fa'
 import * as apiClient from '../api-client'
 import GuestInfoForm from '../forms/GuestInfoForm/GuestInfoForm'
+import { facilityIconMap } from '../config/hotel-options-config'
 
 const Detail = () => {
   const { hotelId } = useParams()
@@ -28,13 +30,22 @@ const Detail = () => {
           ))}
         </span>
         <h1 className="text-3xl font-bold">{hotel.name}</h1>
+        <span className="flex gap-1">
+          <FaMapMarkerAlt className="mt-1 text-[#1e40af]" />
+          <h6>{`${hotel.address}, ${hotel.city}, ${hotel.country}`}</h6>
+        </span>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-        {hotel.imageUrls.map((image) => (
-          <div key={image} className="h-[300px]">
+        {hotel.imageUrls.map((url, index) => (
+          <div
+            key={index}
+            className={`
+        ${index === 1 ? 'col-span-2 row-span-2' : 'h-[250px]'}
+      `}
+          >
             <img
-              src={image}
+              src={url}
               alt={hotel.name}
               className="rounded-md w-full h-full object-cover object-center"
             />
@@ -46,9 +57,10 @@ const Detail = () => {
         {hotel.facilities.map((facility) => (
           <div
             key={facility}
-            className="border border-slate-300 rounded-sm p-3"
+            className="border border-slate-300 rounded-sm p-3 flex items-center gap-2"
           >
-            {facility}
+            {facilityIconMap[facility] || null}
+            <span>{facility}</span>
           </div>
         ))}
       </div>
