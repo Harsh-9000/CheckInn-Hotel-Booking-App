@@ -21,6 +21,8 @@ export type HotelType = {
   pricePerNight: number
   starRating: number
   imageUrls: string[]
+  latitude: string
+  longitude: string
   lastUpdated: Date
   bookings: BookingType[]
 }

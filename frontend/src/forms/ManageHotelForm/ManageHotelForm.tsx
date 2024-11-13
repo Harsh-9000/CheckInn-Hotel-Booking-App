@@ -6,6 +6,7 @@ import FacilitiesSection from './FacilitiesSection'
 import GuestSection from './GuestSection'
 import ImagesSection from './ImagesSection'
 import { HotelType } from '../../../../backend/src/shared/types'
+import LocationSection from './LocationSection'
 
 export type HotelFormData = {
   name: string
@@ -21,6 +22,8 @@ export type HotelFormData = {
   starRating: number
   imageFiles: FileList
   imageUrls: string[]
+  latitude: string
+  longitude: string
 }
 
 type Props = {
@@ -67,6 +70,13 @@ const ManageHotelForm = ({ onSave, isLoading, hotel }: Props) => {
       formData.append(`imageFiles`, imageFile)
     })
 
+    if (formDataJson.latitude) {
+      formData.append('latitude', formDataJson.latitude)
+    }
+    if (formDataJson.longitude) {
+      formData.append('longitude', formDataJson.longitude)
+    }
+
     onSave(formData)
   })
 
@@ -78,6 +88,7 @@ const ManageHotelForm = ({ onSave, isLoading, hotel }: Props) => {
         <FacilitiesSection />
         <GuestSection />
         <ImagesSection />
+        <LocationSection />
         <span className="flex justify-end">
           <button
             disabled={isLoading}

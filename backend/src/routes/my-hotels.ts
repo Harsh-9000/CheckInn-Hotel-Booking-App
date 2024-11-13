@@ -34,6 +34,32 @@ router.post(
       .notEmpty()
       .isNumeric()
       .withMessage('Price per night is required and must be a number.'),
+    body('latitude')
+      .notEmpty()
+      .custom((value) => {
+        const floatValue = parseFloat(value)
+        if (isNaN(floatValue)) {
+          throw new Error('Latitude must be a valid number.')
+        }
+        if (floatValue < -90 || floatValue > 90) {
+          throw new Error('Latitude must be between -90 and 90.')
+        }
+        return true
+      })
+      .withMessage('Latitude is required and must be a valid coordinate.'),
+    body('longitude')
+      .notEmpty()
+      .custom((value) => {
+        const floatValue = parseFloat(value)
+        if (isNaN(floatValue)) {
+          throw new Error('Longitude must be a valid number.')
+        }
+        if (floatValue < -180 || floatValue > 180) {
+          throw new Error('Longitude must be between -180 and 180.')
+        }
+        return true
+      })
+      .withMessage('Longitude is required and must be a valid coordinate.'),
   ],
   upload.array('imageFiles', 6),
   async (req: Request, res: Response) => {
