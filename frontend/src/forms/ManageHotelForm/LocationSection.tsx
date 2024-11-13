@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react'
 import 'leaflet/dist/leaflet.css'
 import { useFormContext } from 'react-hook-form'
 import { HotelFormData } from './ManageHotelForm'
+import locationPinIcon from '../../assets/location-pin.png' 
 
 const NOMINATIM_BASE_URL = 'https://nominatim.openstreetmap.org/search?'
 
@@ -33,6 +34,12 @@ interface Location {
 interface ResetCenterViewProps {
   selectPosition: Location | null
 }
+
+const customIcon = new L.Icon({
+  iconUrl: locationPinIcon,
+  iconSize: [50, 50],
+  iconAnchor: [25, 50],
+})
 
 function ResetCenterView({ selectPosition }: ResetCenterViewProps) {
   const map = useMap()
@@ -93,7 +100,7 @@ const LocationSection = () => {
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
             {selectPosition && (
-              <Marker position={locationSelection}>
+              <Marker position={locationSelection} icon={customIcon}>
                 <Popup>{selectPosition?.display_name}</Popup>
               </Marker>
             )}
