@@ -30,6 +30,8 @@ const Detail = () => {
   )
 
   const [isMapModalOpen, setMapModalOpen] = useState(false)
+  const [isImageModalOpen, setImageModalOpen] = useState(false)
+  const [selectedImageIndex, setSelectedImageIndex] = useState<number>(0)
 
   if (!hotel) {
     return <></>
@@ -41,6 +43,27 @@ const Detail = () => {
 
   const closeMapModal = () => {
     setMapModalOpen(false)
+  }
+
+  const openImageModal = (index: number) => {
+    setSelectedImageIndex(index)
+    setImageModalOpen(true)
+  }
+
+  const closeImageModal = () => {
+    setImageModalOpen(false)
+  }
+
+  const showNextImage = () => {
+    setSelectedImageIndex((prevIndex) =>
+      prevIndex === hotel.imageUrls.length - 1 ? 0 : prevIndex + 1
+    )
+  }
+
+  const showPrevImage = () => {
+    setSelectedImageIndex((prevIndex) =>
+      prevIndex === 0 ? hotel.imageUrls.length - 1 : prevIndex - 1
+    )
   }
 
   return (
@@ -68,14 +91,15 @@ const Detail = () => {
         {hotel.imageUrls.map((url, index) => (
           <div
             key={index}
-            className={`
-        ${index === 1 ? 'col-span-2 row-span-2' : 'h-[250px]'}
-      `}
+            className={`${
+              index === 1 ? 'col-span-2 row-span-2' : 'h-[250px]'
+            } cursor-pointer relative group`}
+            onClick={() => openImageModal(index)}
           >
             <img
               src={url}
               alt={hotel.name}
-              className="rounded-md w-full h-full object-cover object-center"
+              className="rounded-md w-full h-full object-cover object-center group-hover:brightness-75 transition duration-300"
             />
           </div>
         ))}
@@ -138,6 +162,45 @@ const Detail = () => {
                 <Popup>{`${hotel.name}, ${hotel.address}`}</Popup>
               </Marker>
             </MapContainer>
+          </div>
+        </div>
+      )}
+
+      {/* Image Modal */}
+      {isImageModalOpen && (
+        <div
+          onClick={closeImageModal}
+          className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center"
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="relative w-full lg:w-2/3 h-5/6 bg-white rounded-lg p-5 overflow-hidden"
+          >
+            <button
+              onClick={closeImageModal}
+              className="absolute top-2 right-2 w-9 h-9 flex items-center justify-center bg-gray-200 rounded-full text-gray-600 hover:bg-black hover:text-white transition-colors duration-200 pb-1 pr-0.5 pr0.5 text-2xl"
+            >
+              &times;
+            </button>
+            <div className="flex justify-between items-center">
+              <button
+                onClick={showPrevImage}
+                className="text-white bg-black pb-1 w-10 h-10 rounded-full hover:bg-slate-300 hover:text-black text-2xl mr-2"
+              >
+                &#60;
+              </button>
+              <img
+                src={hotel.imageUrls[selectedImageIndex]}
+                alt="Hotel"
+                className="w-10.5/12 min-w-[120vh] max-w-[120vh] min-h-[78vh] max-h-[78vh] sm:max-h-[70vh] md:max-h-[80vh] lg:max-h-[78vh] object-cover rounded-lg"
+              />
+              <button
+                onClick={showNextImage}
+                className="text-white bg-black pb-1 w-10 h-10 rounded-full hover:bg-slate-300 hover:text-black text-2xl ml-2"
+              >
+                &#62;
+              </button>
+            </div>
           </div>
         </div>
       )}
